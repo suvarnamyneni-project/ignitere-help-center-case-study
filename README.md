@@ -12,6 +12,10 @@
 
 **Suvarna Myneni** · AI-Native UX Designer · Hyderabad, India
 
+### 🌐 [View the case study website →](https://suvarnamyneni-project.github.io/ignitere-help-center-case-study/)
+
+
+
 </div>
 
 ---
