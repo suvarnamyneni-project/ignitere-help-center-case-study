@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IgniteRE Help Center & Chat Support: UX Case Study · Suvarna Myneni</title>
+<meta name="description" content="UX case study by Suvarna Myneni: designing an in-app Help Center and Chat Support for the IgniteRE real estate platform."/>
+<meta property="og:title" content="IgniteRE Help Center & Chat Support: UX Case Study"/>
+<meta property="og:description" content="Bringing support inside a real estate management platform. 50% faster response times, 30% self-resolution, +25% satisfaction."/>
+<meta property="og:image" content="images/00-hero-banner.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--ink:#14172b;--muted:#5b6078;--line:#e6e8f0;--bg:#ffffff;--soft:#f6f7fb;--brand:#6c47ff;--brand2:#1fb6ff;--navy:#1e3a6e;--accent:#ffd24a;--radius:18px;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--brand)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.logo{font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-.02em;white-space:nowrap}
+.logo span{background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav a.l{display:block;padding:6px 10px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;white-space:nowrap}
+nav a.l:hover,nav a.l.on{background:var(--soft);color:var(--ink)}
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 10% -10%,#e9e3ff 0,transparent 60%),radial-gradient(900px 500px at 100% 0,#dff4ff 0,transparent 60%);padding:72px 0 40px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);background:#efeaff;padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(34px,5.4vw,60px);line-height:1.06;letter-spacing:-.035em;margin:18px 0 14px;font-weight:800}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:760px;margin:0}
+.byline{margin-top:18px;color:var(--muted);font-size:15px}.byline b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.hero-img{margin-top:40px;border-radius:22px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(40,30,120,.45)}
+/* sections */
+section{padding:84px 0;border-top:1px solid var(--line)}
+section.alt{background:var(--soft)}
+.step{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+.step i{font-style:normal;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;letter-spacing:0;font-size:14px}
+h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;line-height:1.15;margin:12px 0 18px}
+h3{font-size:22px;letter-spacing:-.015em;margin:44px 0 14px}
+h4{font-size:17px;margin:32px 0 10px}
+p{margin:0 0 14px}.muted{color:var(--muted)}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.card h4{margin:6px 0 8px}.card p:last-child,.card ul:last-child{margin-bottom:0}
+.card .ic{font-size:26px}
+.card ul{padding-left:18px;margin:8px 0}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden;margin-top:28px}
+.facts div{padding:18px 20px;border-right:1px solid var(--line)}.facts div:last-child{border-right:0}
+.facts small{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts b{font-size:16px}
+.quote{border-left:4px solid var(--brand);background:#f3efff;padding:18px 22px;border-radius:0 14px 14px 0;font-size:18px;margin:26px 0}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff;margin:18px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:620px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#fafbff;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td b{color:var(--ink)}
+/* hmw */
+.hmw{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:18px}
+.hmw div{background:linear-gradient(160deg,#6c47ff,#4b2fd6);color:#fff;border-radius:var(--radius);padding:22px;font-weight:500}
+.hmw small{display:block;font-weight:800;letter-spacing:.12em;opacity:.8;margin-bottom:8px}
+/* diagrams */
+.diagram{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin:18px 0;overflow-x:auto;text-align:center}
+.diagram .mermaid{min-width:560px;visibility:hidden}.diagram .mermaid[data-processed]{visibility:visible}
+.cap{font-size:14px;color:var(--muted);margin-top:10px;text-align:center}
+/* figures */
+figure{margin:22px 0 34px}
+figure img{width:100%;border-radius:14px;border:1px solid var(--line);background:#f2f2f2;cursor:zoom-in}
+figcaption{font-size:14.5px;color:var(--muted);margin-top:10px}
+figcaption b{color:var(--ink)}
+details{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:0 22px;margin-top:10px}
+summary{cursor:pointer;font-weight:700;padding:18px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"＋";display:inline-block;width:26px;color:var(--brand)}
+details[open] summary::before{content:"－"}
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:26px 0}
+.metric{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;text-align:center}
+.metric .n{font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.metric .t{font-weight:700;margin:10px 0 4px;font-size:15px}
+.metric .d{font-size:13.5px;color:var(--muted);line-height:1.45}
+ol.take{counter-reset:t;list-style:none;padding:0;display:grid;gap:14px}
+ol.take li{counter-increment:t;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 18px 66px;position:relative}
+ol.take li::before{content:counter(t);position:absolute;left:20px;top:18px;width:30px;height:30px;border-radius:50%;background:#efeaff;color:var(--brand);font-weight:800;display:grid;place-items:center}
+/* contact */
+.contact{background:linear-gradient(135deg,#1b1f3b,#3b2a8f);color:#fff;border-top:0}
+.contact h2{color:#fff}.contact p{color:#cfd2ec}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
+.btn.p{background:#fff;color:#1b1f3b}.btn.s{border:1px solid rgba(255,255,255,.35);color:#fff}
+footer{background:#14172b;color:#9aa0c0;font-size:13.5px;padding:22px 0;text-align:center}
+.process{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:8px}
+.process a{position:relative;display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 16px;transition:transform .2s,box-shadow .2s}
+.process a:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(60,40,160,.5)}
+.process i{font-style:normal;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:800;font-size:14px;margin-bottom:10px}
+.process b{display:block;font-size:15.5px}.process span{font-size:13.5px;color:var(--muted);line-height:1.4;display:block;margin-top:2px}
+.diagram svg{margin:0 auto;max-width:100%!important;height:auto}
+.diagram .mermaid{min-width:0}
+@media (max-width:980px){.process{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.process{grid-template-columns:repeat(2,1fr)}.diagram{text-align:left}.diagram svg{max-width:none!important}.diagram::after{content:"← swipe to explore →";display:block;font-size:12px;color:var(--muted);text-align:center;margin-top:8px}}
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.stage{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;border-top:4px solid var(--brand)}
+.stage:nth-child(2){border-top-color:#1fb6ff}.stage:nth-child(3){border-top-color:#ff7aa8}.stage:nth-child(4){border-top-color:#ff5a5a}
+.stage h5{margin:0 0 10px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jstep{display:flex;gap:10px;align-items:flex-start;font-size:15px;padding:10px 0;border-top:1px dashed var(--line);line-height:1.45}
+.jstep:first-of-type{border-top:0}.jstep small{display:block;color:var(--muted);font-size:12.5px}
+.mood{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:18px}
+.m4{background:#e5f8ec}.m2{background:#fff4d6}.m1{background:#ffe3e3}
+@media (max-width:980px){.journey{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.journey{grid-template-columns:1fr}}
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(10,12,28,.9);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-height:92vh;border-radius:10px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (max-width:980px){.g4,.g5,.metrics{grid-template-columns:repeat(2,1fr)}.g3,.hmw{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,1fr)}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:640px){body{font-size:16px}section{padding:60px 0}.g2,.g4{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}nav ul{display:none}.hero{padding:48px 0 28px}.facts{grid-template-columns:1fr}.facts div{border-right:0;border-bottom:1px solid var(--line)}.metric .n{font-size:36px}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">Suvarna Myneni · <span>Case Study</span></a>
+  <ul>
+    <li><a class="l" href="#overview">Overview</a></li>
+    <li><a class="l" href="#empathize">Empathize</a></li>
+    <li><a class="l" href="#define">Define</a></li>
+    <li><a class="l" href="#ideate">Ideate</a></li>
+    <li><a class="l" href="#design">Design</a></li>
+    <li><a class="l" href="#test">Test</a></li>
+    <li><a class="l" href="#results">Results</a></li>
+    <li><a class="l" href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <span class="eyebrow">UX Case Study · Real Estate SaaS</span>
+  <h1>IgniteRE Help Center<br/>&amp; <em>Chat Support</em></h1>
+  <p class="lead">Bringing support <i>inside</i> a real estate management platform, so agents and property managers get help the moment they need it, without leaving their work.</p>
+  <p class="byline">By <b>Suvarna Myneni</b>, AI-Native UX Designer · Hyderabad, India</p>
+  <div class="chips"><span class="chip">🎨 UX/UI Design</span><span class="chip">🛠️ Figma</span><span class="chip">🏠 Real Estate SaaS</span><span class="chip">💬 Self-Service + Chat Support</span></div>
+  <div class="hero-img"><img src="images/00-hero-banner.jpg" alt="IgniteRE Help Center: in-app help panel shown over the IgniteRE dashboard" width="2000" height="700"/></div>
+  <div class="facts">
+    <div><small>Product</small><b>IgniteRE platform</b></div>
+    <div><small>Designed</small><b>Help Center + Chat Support</b></div>
+    <div><small>Tool</small><b>Figma</b></div>
+    <div><small>Headline result</small><b>50% faster responses</b></div>
+  </div>
+</div></header>
+
+<section id="overview"><div class="wrap reveal">
+  <div class="step"><i>★</i> Overview</div>
+  <h2>Support that lives where the work happens</h2>
+  <p><b>IgniteRE</b> is a dynamic real estate management platform used by <b>real estate agents and property managers</b> to streamline their daily tasks. As the platform grew in complexity and features, users began to experience friction when they needed support. They often struggled to find timely assistance, which led to frustration and lower satisfaction.</p>
+  <p>To address these pain points, we designed and integrated a <b>Help Center and Chat Support directly inside the IgniteRE application</b>, improving the overall user experience.</p>
+  <figure><img src="images/01-hero-mockup.jpg" alt="Hi-fi mockup: the Help panel open beside the IgniteRE dashboard" loading="lazy" width="2000" height="1409"/>
+  <figcaption>The final Help panel opens beside the user's current page, so they never lose their place.</figcaption></figure>
+  <div class="grid g4">
+    <div class="card"><div class="ic">👩‍🎨</div><h4>Role</h4><p class="muted">UX/UI Design: Help Center &amp; Chat Support experience</p></div>
+    <div class="card"><div class="ic">🛠️</div><h4>Tool</h4><p class="muted">Figma</p></div>
+    <div class="card"><div class="ic">🖥️</div><h4>Platform</h4><p class="muted">IgniteRE web application (in-app help panel)</p></div>
+    <div class="card"><div class="ic">👥</div><h4>Users</h4><p class="muted">Real estate agents and property managers</p></div>
+  </div>
+  <div class="quote"><b>Problem statement:</b> IgniteRE users had no fast, in-context way to get help. Support lived outside the app, tickets were slow, and the same questions kept coming back, so users got frustrated and the support team got overloaded.</div>
+  <h3>The UX process at a glance</h3>
+  <div class="process">
+    <a href="#empathize"><i>1</i><b>Empathize</b><span>User pain points</span></a>
+    <a href="#define"><i>2</i><b>Define</b><span>Challenges → objectives</span></a>
+    <a href="#ideate"><i>3</i><b>Ideate</b><span>Concepts, IA, flows</span></a>
+    <a href="#design"><i>4</i><b>Design</b><span>Wireframes → hi-fi in Figma</span></a>
+    <a href="#test"><i>5</i><b>Test &amp; Iterate</b><span>Usability rounds, feedback loops</span></a>
+    <a href="#results"><i>6</i><b>Measure</b><span>Results &amp; impact</span></a>
+  </div>
+</div></section>
+
+<section id="empathize" class="alt"><div class="wrap reveal">
+  <div class="step"><i>1</i> Empathize &amp; Discover</div>
+  <h2>Understanding what getting help felt like</h2>
+  <p class="muted">The first step was understanding what support felt like for IgniteRE's users as the platform grew.</p>
+  <h3>Target users</h3>
+  <div class="grid g2">
+    <div class="card"><div class="ic">🏡</div><h4>Real estate agents</h4><p><b>Rely on IgniteRE for:</b> streamlining daily tasks across a growing feature set.</p><p class="muted"><b>Need from support:</b> quick, in-context answers without leaving their work.</p></div>
+    <div class="card"><div class="ic">🏢</div><h4>Property managers</h4><p><b>Rely on IgniteRE for:</b> managing properties and day-to-day workflows.</p><p class="muted"><b>Need from support:</b> timely help for urgent problems, and self-serve guidance for common how-tos.</p></div>
+  </div>
+  <h3>What users were experiencing</h3>
+  <div class="grid g4">
+    <div class="card"><div class="ic">🚪</div><h4>Support lived outside the app</h4><p class="muted">The existing support system was external and often time-consuming to reach.</p></div>
+    <div class="card"><div class="ic">⏳</div><h4>Slow ticket resolution</h4><p class="muted">Traditional ticketing meant long waits, hurting users who needed urgent help.</p></div>
+    <div class="card"><div class="ic">🔁</div><h4>Repeating the same questions</h4><p class="muted">Similar feature questions created repetitive requests and more work for support.</p></div>
+    <div class="card"><div class="ic">🧩</div><h4>Growing complexity</h4><p class="muted">As features were added, users hit more friction and struggled to find timely help.</p></div>
+  </div>
+  <h3>The "before" support journey</h3>
+  <p class="muted">This journey is based only on the pain points above.</p>
+  <div class="journey">
+    <div class="stage"><h5>Hit a problem</h5>
+      <div class="jstep"><span class="mood m4">🙂</span>Working on a task in IgniteRE</div>
+      <div class="jstep"><span class="mood m2">😕</span>Gets stuck on a feature</div></div>
+    <div class="stage"><h5>Look for help</h5>
+      <div class="jstep"><span class="mood m1">😣</span>Leaves the app to find external support</div>
+      <div class="jstep"><span class="mood m1">😣</span>Navigates a hard-to-use support system</div></div>
+    <div class="stage"><h5>Wait</h5>
+      <div class="jstep"><span class="mood m2">😕</span>Submits a ticket</div>
+      <div class="jstep"><span class="mood m1">😣</span>Waits a long time for a response</div></div>
+    <div class="stage"><h5>Outcome</h5>
+      <div class="jstep"><span class="mood m1">😣</span>Asks a question others already asked <small>(user + support team)</small></div>
+      <div class="jstep"><span class="mood m1">😣</span>Feels frustrated and less satisfied</div></div>
+  </div>
+</div></section>
+
+<section id="define"><div class="wrap reveal">
+  <div class="step"><i>2</i> Define</div>
+  <h2>From challenges to clear objectives</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>Challenge</th><th>Objective</th><th>Design solution</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Difficulty finding support resources.</b> The support system was external and time-consuming to access</td><td><b>Improve accessibility to support.</b> Make help resources easy to reach within the app</td><td>In-app Help panel plus a <b>persistent chat widget</b> in the same place on every page</td></tr>
+      <tr><td>2</td><td><b>Slow resolution times.</b> Ticketing caused long waits for urgent issues</td><td><b>Reduce resolution time.</b> Give users faster, more efficient support</td><td><b>Chatbot</b> first response with a <b>live-agent handoff</b> that keeps the user's context</td></tr>
+      <tr><td>3</td><td><b>High volume of repetitive inquiries.</b> Similar feature questions overloaded the support team</td><td><b>Enhance self-service.</b> Let users solve common problems on their own with minimal effort</td><td><b>Searchable knowledge base</b> with categories and <b>step-by-step guides</b> with visuals</td></tr>
+      <tr><td>–</td><td>Support features could disrupt the existing UI</td><td><b>Deliver a seamless experience.</b> Integrate support without disrupting the app's interface and flow</td><td>Panel that matches the app's look, feel and branding: <b>unobtrusive but always available</b></td></tr>
+    </tbody>
+  </table></div>
+  <h3>How Might We…</h3>
+  <div class="hmw">
+    <div><small>HMW 01</small>Give agents and property managers help <i>at the moment they need it</i>, without making them leave the page they're working on?</div>
+    <div><small>HMW 02</small>Let users answer common questions themselves, so the support team can focus on the issues that really need a person?</div>
+    <div><small>HMW 03</small>Make escalating to a human fast and smooth, without users having to repeat themselves?</div>
+  </div>
+</div></section>
+
+<section id="ideate" class="alt"><div class="wrap reveal">
+  <div class="step"><i>3</i> Ideate</div>
+  <h2>Two complementary concepts</h2>
+  <div class="grid g2">
+    <div class="card"><div class="ic">📚</div><h4>Concept A: In-app Help Center</h4><p class="muted">Make help content easy to find, organized and actionable.</p>
+      <ul><li><b>Searchable knowledge base:</b> keyword search with predictive results</li><li><b>Categorized content:</b> intuitive categories that mirror the product</li><li><b>Step-by-step guides &amp; visuals:</b> instructions paired with screenshots, GIFs and videos</li></ul></div>
+    <div class="card"><div class="ic">💬</div><h4>Concept B: Chat Support</h4><p class="muted">Focus on ease of use, accessibility and efficiency.</p>
+      <ul><li><b>Persistent chat widget:</b> always in the same place, no page change needed</li><li><b>Chatbot assistance:</b> answers FAQs or points to relevant Help Center articles</li><li><b>Live-agent handoff:</b> escalate when the bot can't resolve the issue, with context passed along</li><li><b>Real-time feedback:</b> users rate the support experience</li></ul></div>
+  </div>
+  <h3>Information architecture</h3>
+  <p class="muted">Help content was organized into categories that match the areas of the product users already know.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+    H["❓ Help panel<br/>(search + suggested topics)"] --> HC["📚 Help Center"]
+    H --> SR["👤 Contact My Sales Rep"]
+    H --> LM["✉️ Leave a Message"]
+    H --> LC["💬 Start a Live Chat"]
+    HC --> D["Dashboard"]
+    HC --> O["Orders"]
+    HC --> P["Properties"]
+    HC --> M["Marketing"]
+    HC --> C["Calculators"]
+    HC --> E["FirstAM EDU"]
+    P --> P1["How to run a property search"]
+    P --> P2["How to place a title and escrow order"]
+    P --> P3["How to run a combined report"]
+    P --> P4["What is a farm?"]
+    P --> P5["How to add / export properties from a farm"]
+  </pre><p class="cap">Categories and sample articles are taken from the project wireframes. The core categories in the brief were Dashboard, Orders, Properties and Marketing.</p></div>
+  <h3>User flow: from self-service to live agent</h3>
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+    A(["User is working on any IgniteRE page"]) --> B["Opens the persistent Help / Chat widget"]
+    B --> C{"How do they want help?"}
+    C -->|Search| D["Types keywords → predictive results"]
+    D --> E["Opens a step-by-step article<br/>with screenshots, GIFs or video"]
+    E --> F{"Was this helpful?"}
+    F -->|Yes| Z(["✅ Resolved on their own"])
+    F -->|No| G["Shares feedback → similar articles<br/>or starts a chat"]
+    C -->|Chat| H["🤖 Chatbot answers the FAQ<br/>or suggests articles"]
+    G --> H
+    H --> I{"Resolved?"}
+    I -->|Yes| R["⭐ User rates the experience"]
+    I -->|No| J["🧑‍💼 Smooth handoff to a live agent"]
+    J --> K["Context passed along:<br/>previous interactions + issue details"]
+    K --> L["Agent resolves the issue"]
+    L --> R
+    C -->|Prefer async| M["✉️ Leave a Message<br/>topic, reason, attachment, contact preference"]
+    R --> Z2(["✅ Resolved, and feedback feeds improvements"])
+  </pre></div>
+</div></section>
+
+<section id="design"><div class="wrap reveal">
+  <div class="step"><i>4</i> Design</div>
+  <h2>From wireframes to a native-feeling help panel</h2>
+  <h3>Design principles</h3>
+  <div class="grid g3">
+    <div class="card"><div class="ic">📌</div><h4>Help without leaving the page</h4><p class="muted">A side panel opens next to the current screen. It can be <b>docked</b> or <b>undocked</b> into its own window.</p></div>
+    <div class="card"><div class="ic">🎯</div><h4>One consistent entry point</h4><p class="muted">The chat/help icon sits in the <b>same location across the app</b>.</p></div>
+    <div class="card"><div class="ic">🙋</div><h4>Self-service first, human always available</h4><p class="muted">Search and suggested topics come first; four routes are always visible: Help Center · Contact My Sales Rep · Leave a Message · Start a Live Chat.</p></div>
+    <div class="card"><div class="ic">🎬</div><h4>Show, don't just tell</h4><p class="muted">Articles combine step-by-step text with screenshots, GIFs and video.</p></div>
+    <div class="card"><div class="ic">🧩</div><h4>Feels native to IgniteRE</h4><p class="muted">Look and feel match the app's existing design and branding.</p></div>
+  </div>
+
+  <h3 id="wireframes">Wireframes</h3>
+  <p class="muted">Low-fidelity wireframes in Figma mapped every state of the help experience before any visual design.</p>
+  <figure><img src="images/wf-01-search-flow.png" alt="Wireframes: Help panel initial state, search with recent searches, predictive suggestions while typing, and results" loading="lazy" width="2000" height="975"/>
+    <figcaption><b>🔍 Search: initial state → typing → results.</b> Suggested topics greet the user, recent searches appear on focus, predictive results update while typing, and a full results list is one tap away.</figcaption></figure>
+  <figure><img src="images/wf-02-help-article-feedback.png" alt="Wireframes: help article, 'Was this helpful?' feedback, and confirmation with similar articles" loading="lazy" width="2000" height="975"/>
+    <figcaption><b>📄 Help article &amp; "Was this helpful?" feedback.</b> Step-by-step articles with media, inline feedback with a "How can we improve this article?" field, plus similar articles to keep users moving.</figcaption></figure>
+  <details><summary>More wireframes: video modal, Help Center categories, Sales Rep, Leave a Message, Live Chat, docked/undocked panel</summary>
+    <figure><img src="images/wf-03-video-modal.png" alt="Wireframes: help article and full-screen video modal" loading="lazy" width="2000" height="975"/><figcaption><b>🎬 Video guide modal</b></figcaption></figure>
+    <figure><img src="images/wf-04-help-center-sales-rep.png" alt="Wireframes: Help Center category accordion, expanded Properties category, and My Sales Rep card" loading="lazy" width="2000" height="1307"/><figcaption><b>📚 Help Center categories &amp; My Sales Rep</b></figcaption></figure>
+    <figure><img src="images/wf-05-leave-a-message.png" alt="Wireframes: Leave Us a Message form states and sent confirmation" loading="lazy" width="2000" height="1307"/><figcaption><b>✉️ Leave a Message: empty → filled → sent</b></figcaption></figure>
+    <figure><img src="images/wf-06-live-chat.png" alt="Wireframes: Live Chat conversation states and return to panel" loading="lazy" width="2000" height="971"/><figcaption><b>💬 Live Chat: start → typing → sent → return</b></figcaption></figure>
+    <figure><img src="images/wf-07-docked-undocked-panel.png" alt="Wireframes: docked Help panel and undocked Help window" loading="lazy" width="2000" height="927"/><figcaption><b>🪟 Docked vs. undocked panel</b></figcaption></figure>
+  </details>
+
+  <h3 id="hifi">High-fidelity mockups</h3>
+  <p class="muted">The wireframes then became polished, on-brand screens. Key details: a soft accent edge marking the panel, clear iconography for the four support routes, and generous spacing for readability.</p>
+  <figure><img src="images/hifi-01-panel-search-message.png" alt="Hi-fi mockups: Help panel open, search initiated, and Talk to us message form" loading="lazy" width="2000" height="969"/><figcaption><b>Panel open · search initiated · "Talk to us" message form</b></figcaption></figure>
+  <figure><img src="images/hifi-02-help-center-article.png" alt="Hi-fi mockups: Help Center categories, How to Run a Property Search article, and feedback footer" loading="lazy" width="2000" height="969"/><figcaption><b>Help Center categories · "How to Run a Property Search" article · feedback &amp; similar articles</b></figcaption></figure>
+
+  <h3>Key features delivered</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>What it does</th><th>Objective it serves</th></tr></thead>
+    <tbody>
+      <tr><td><b>🔍 Searchable knowledge base</b></td><td>Keyword search with predictive results and query-based articles</td><td>Self-service, accessibility</td></tr>
+      <tr><td><b>🗂️ Categorized content</b></td><td>Dashboard, Orders, Properties, Marketing (plus more) for easy browsing</td><td>Self-service</td></tr>
+      <tr><td><b>🪜 Step-by-step guides</b></td><td>Detailed instructions with screenshots, GIFs and videos</td><td>Self-service</td></tr>
+      <tr><td><b>💬 Persistent chat widget</b></td><td>Same location everywhere; start a conversation without leaving the page</td><td>Accessibility, seamless experience</td></tr>
+      <tr><td><b>🤖 Chatbot assistance</b></td><td>Answers FAQs or links to relevant Help Center articles</td><td>Faster resolution, fewer repetitive inquiries</td></tr>
+      <tr><td><b>🧑‍💼 Live-agent handoff</b></td><td>Seamless escalation with prior interactions and issue details passed along</td><td>Faster resolution</td></tr>
+      <tr><td><b>⭐ Real-time feedback</b></td><td>Users rate the support experience and articles</td><td>Continuous improvement</td></tr>
+      <tr><td><b>🧩 Seamless integration</b></td><td>Matches IgniteRE's look, feel and branding; unobtrusive but always available</td><td>Seamless experience</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Design system &amp; consistency</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Native visual language</h4><p class="muted">Reused IgniteRE's existing visual language and branding, so support feels like part of the product rather than a bolt-on.</p></div>
+    <div class="card"><h4>Repeatable panel pattern</h4><p class="muted">Header (title, undock, close) → search → content → persistent support shortcuts, the same in every state.</p></div>
+    <div class="card"><h4>Consistent components</h4><p class="muted">List rows with chevrons, accordion categories, floating-label fields, Yes/No feedback buttons and quick-action tiles.</p></div>
+  </div>
+</div></section>
+
+<section id="test" class="alt"><div class="wrap reveal">
+  <div class="step"><i>5</i> Test &amp; Iterate</div>
+  <h2>Validated with real users, refined after launch</h2>
+  <div class="diagram"><pre class="mermaid">
+flowchart TB
+    subgraph PRE["Pre-launch"]
+      direction LR
+      A["Design"] --> B["Usability testing<br/>with real users"] --> C["Insights"] --> D["Refine chatbot flow"]
+    end
+    subgraph POST["Post-launch"]
+      direction LR
+      E["Launch"] --> F["In-app surveys +<br/>behavior analytics"] --> G["Ongoing improvements"]
+      G -- feedback loop --> F
+    end
+    PRE --> POST
+  </pre></div>
+  <div class="grid g2">
+    <div class="card"><div class="ic">🧪</div><h4>Usability testing (pre-launch)</h4><p>Ran <b>several rounds of usability testing with real users</b>, observing how they used both the Help Center and Chat Support.</p><p class="muted">✅ Users liked how <b>simple and efficient</b> the Help Center search was.<br/>🔧 We <b>adjusted the chatbot's flow</b> to handle more nuanced queries.</p></div>
+    <div class="card"><div class="ic">🔁</div><h4>Feedback loops (post-launch)</h4><p>Kept collecting feedback through <b>in-app surveys</b> and <b>user behavior analytics</b>.</p><p class="muted">Made ongoing improvements to refine the experience and make sure users got the most value from the new features.</p></div>
+  </div>
+</div></section>
+
+<section id="results"><div class="wrap reveal">
+  <div class="step"><i>6</i> Results &amp; Impact</div>
+  <h2>Measurable impact on the user experience</h2>
+  <div class="metrics">
+    <div class="metric"><div class="n">50%</div><div class="t">⚡ Faster resolution</div><div class="d">reduction in response times</div></div>
+    <div class="metric"><div class="n">30%</div><div class="t">🙋 Self-service</div><div class="d">of users resolved issues independently</div></div>
+    <div class="metric"><div class="n">40%</div><div class="t">💪 Less frustration</div><div class="d">say they now feel more empowered to solve problems</div></div>
+    <div class="metric"><div class="n">+20%</div><div class="t">📊 Engagement</div><div class="d">increase in user engagement</div></div>
+    <div class="metric"><div class="n">+25%</div><div class="t">⭐ Satisfaction</div><div class="d">increase in user satisfaction scores</div></div>
+  </div>
+  <div class="grid g2">
+    <div class="card"><h4>Faster issue resolution</h4><p class="muted">Chat Support led to a <b>50% reduction in response times</b>, with many users now getting immediate answers from the chatbot or a live agent.</p></div>
+    <div class="card"><h4>More self-service</h4><p class="muted"><b>30% of users resolved their issues independently</b>, which reduced the load on live support agents and raised overall satisfaction.</p></div>
+    <div class="card"><h4>Less frustration</h4><p class="muted">Users reported feeling more confident in the app, with <b>40%</b> saying they now feel more empowered to solve problems on their own.</p></div>
+    <div class="card"><h4>Better engagement</h4><p class="muted">Always-available support led to a <b>20% increase in user engagement</b>, with users spending more time in the app knowing help was a click away.</p></div>
+    <div class="card"><h4>Positive feedback</h4><p class="muted"><b>User satisfaction scores rose 25%</b>, especially for the clarity and usefulness of Help Center articles and the responsiveness of live chat.</p></div>
+  </div>
+</div></section>
+
+<section id="learnings" class="alt"><div class="wrap reveal">
+  <div class="step"><i>✦</i> Learnings &amp; Conclusion</div>
+  <h2>What this project taught me</h2>
+  <p>Integrating the Help Center and Chat Support significantly improved the experience for IgniteRE users. Quick access to helpful resources and real-time support reduced frustration, improved task completion times and increased user satisfaction.</p>
+  <ol class="take">
+    <li><b>In-context support matters.</b> Putting help inside the workflow, with a consistent entry point and no page change, removed the biggest barrier: getting to help at all.</li>
+    <li><b>Self-service and human support work together.</b> Good search, clear categories and visual guides take care of repetitive questions, so live agents can focus on what really needs a person.</li>
+    <li><b>Handoffs should carry context.</b> Passing prior interactions and issue details to the live agent means users never have to repeat themselves.</li>
+    <li><b>Launch is the start of iteration.</b> Usability testing shaped the chatbot flow, and in-app surveys plus analytics keep improving the experience after release.</li>
+    <li><b>Good support UX helps the business too.</b> The project improved the customer experience and also made support operations more efficient for the IgniteRE team.</li>
+  </ol>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let's talk</h2>
+  <p><b style="color:#fff">Suvarna Myneni</b>, AI-Native UX Designer · 8+ years · Hyderabad, India</p>
+  <div class="btns">
+    <a class="btn p" href="https://www.linkedin.com/in/suvarnamyneni/" target="_blank" rel="noopener">in&nbsp; LinkedIn</a>
+    <a class="btn s" href="mailto:suvarnamyneni@gmail.com">✉ suvarnamyneni@gmail.com</a>
+  </div>
+</div></section>
+
+<footer>All visuals come from the original IgniteRE Help Center project file. All metrics are as reported in the project documentation.</footer>
+
+<div id="lb" role="dialog" aria-label="Image preview"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/></div>
+
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+mermaid.initialize({startOnLoad:false,theme:"base",securityLevel:"loose",flowchart:{htmlLabels:true,curve:"basis",useMaxWidth:false},
+  themeVariables:{fontFamily:"Inter, system-ui, sans-serif",fontSize:"15px",primaryColor:"#efeaff",primaryBorderColor:"#6c47ff",primaryTextColor:"#14172b",lineColor:"#8a7dff",secondaryColor:"#e6f6ff",tertiaryColor:"#f6f7fb"}});
+await mermaid.run({querySelector:".mermaid"});
+</script>
+<script>
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// active nav
+const links=[...document.querySelectorAll('nav a.l')];
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>so.observe(s));
+// lightbox
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('figure img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+</script>
+</body>
+</html>
