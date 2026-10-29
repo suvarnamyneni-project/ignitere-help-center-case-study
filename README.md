@@ -10,7 +10,7 @@
 ![Domain](https://img.shields.io/badge/Domain-Real%20Estate%20SaaS-1E4E8C?style=flat-square)
 ![Focus](https://img.shields.io/badge/Focus-Self--Service%20%2B%20Chat%20Support-00A3A3?style=flat-square)
 
-**Suvarna Myneni** · AI-Native UX Designer · Hyderabad, India
+**Ravi Myneni** · AI-Native UX Designer · Hyderabad, India
 
 ### 🌐 [View the case study website →](https://suvarnamyneni-project.github.io/ignitere-help-center-case-study/)
 
@@ -365,7 +365,7 @@ flowchart LR
 
 ## 📬 Contact
 
-**Suvarna Myneni**, AI-Native UX Designer · 8+ years · Hyderabad, India
+**Ravi Myneni**, AI-Native UX Designer · 8+ years · Hyderabad, India
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-suvarnamyneni-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/suvarnamyneni/)
 [![Email](https://img.shields.io/badge/Email-suvarnamyneni%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:suvarnamyneni@gmail.com)
